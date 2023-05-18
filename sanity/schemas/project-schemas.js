@@ -12,13 +12,15 @@ const project = {
 			name: "slug",
 			title: "Slug",
 			type: "slug",
-			Option: { source: "name" },
+			options: { source: "name" },
 		},
 		{
 			name: "image",
 			title: "Image",
 			type: "image",
-			Option: { hotspot: true },
+			options: {
+				hotspot: true, // <-- Defaults to false
+			},
 			fields: [
 				{
 					name: "alt",

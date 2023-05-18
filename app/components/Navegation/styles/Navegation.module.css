@@ -1,0 +1,17 @@
+.header {
+  background-color: var(--black);
+  padding: 25px;
+  color: white;
+
+}
+
+.navegation{
+    display: flex;
+    justify-content: flex-end;
+    list-style: none;
+    gap: 20px;
+}
+
+.navegation_item:hover{
+    color: blue;
+}

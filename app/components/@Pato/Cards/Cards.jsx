@@ -1,5 +1,3 @@
-import Link from "next/link";
-import { Title } from "..";
 import styles from "./Cards.module.css";
 import Image from "next/image";
 import { PortableText } from "@portabletext/react";

@@ -13,6 +13,7 @@ const Projects = async () => {
 				{projects.map((project) => (
 					<div className={styles.cards_container} key={project.id}>
 						<Image
+							className={styles.car_image}
 							src={project.image}
 							width={400}
 							height={264}

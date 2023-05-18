@@ -1,5 +1,6 @@
 import { Button, Title, Cards } from "./components/@Pato";
 import styles from "./page.module.css";
+import ProjectsCards from "./projects/ProjectsCards";
 
 export default function Home() {
 	return (
@@ -30,7 +31,9 @@ export default function Home() {
 					hacia el dominio de estas poderosas tecnologías web.
 				</p>
 			</div>
-			<Cards />
+			<div className={styles.container}>
+				<ProjectsCards />
+			</div>
 		</>
 	);
 }

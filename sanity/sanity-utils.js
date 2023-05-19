@@ -18,10 +18,7 @@ export async function getProjects() {
             content
         }`,
 		{
-			config: {
-				cache: "force-cache",
-				next: { revalidate: 60 },
-			},
+			cache: "no-store",
 		}
 	);
 }

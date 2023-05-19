@@ -1,7 +1,28 @@
-import { Button, Title, Cards } from "./components/@Pato";
+/* import { Button, Title, Cards } from "./components/@Pato";
 import styles from "./page.module.css";
 import ProjectsCards from "./projects/ProjectsCards";
-import { getProjects } from "@/sanity/sanity-utils";
+ */
+import { createClient, groq } from "next-sanity";
+
+const clientData = {
+	projectId: process.env.NEXT_PUBLIC_SANITY,
+	dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || "production",
+	apiVersion: "2023-05-18",
+};
+
+const getProjects = () => {
+	return createClient(clientData).fetch(
+		groq`*[_type == "project"]{
+            _id,
+            _createdAt,
+            name,
+            "slug":slug.current,
+            "image":image.asset->url,
+            url,
+            content
+        }`
+	);
+};
 
 const Home = async () => {
 	const projects = await getProjects();

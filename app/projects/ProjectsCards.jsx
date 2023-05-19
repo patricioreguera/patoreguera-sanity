@@ -1,4 +1,4 @@
-"use client";
+/* "use client"; */
 import { getProjects } from "@/sanity/sanity-utils";
 import { PortableText } from "@portabletext/react";
 import styles from "../components/@Pato/Cards/Cards.module.css";

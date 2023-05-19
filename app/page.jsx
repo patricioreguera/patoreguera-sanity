@@ -7,7 +7,10 @@ const Home = async () => {
 	const projects = await getProjects();
 	return (
 		<>
-			<div className={styles.main_container}>
+			{projects.map((project) => (
+				<h1 key={project.id}>{project.name}</h1>
+			))}
+			{/* 		<div className={styles.main_container}>
 				<div className={styles.main_title_container}>
 					<Title
 						text={"Aprende ªJavaScript y Reactº de manera fácil y divertida"}
@@ -35,7 +38,7 @@ const Home = async () => {
 			</div>
 			<div className={styles.container}>
 				<ProjectsCards projects={projects} />
-			</div>
+			</div> */}
 		</>
 	);
 };

@@ -1,8 +1,10 @@
 import { Button, Title, Cards } from "./components/@Pato";
 import styles from "./page.module.css";
 import ProjectsCards from "./projects/ProjectsCards";
+import { getProjects } from "@/sanity/sanity-utils";
 
-export default function Home() {
+const Home = async () => {
+	const projects = await getProjects();
 	return (
 		<>
 			<div className={styles.main_container}>
@@ -32,8 +34,10 @@ export default function Home() {
 				</p>
 			</div>
 			<div className={styles.container}>
-				<ProjectsCards />
+				<ProjectsCards projects={projects} />
 			</div>
 		</>
 	);
-}
+};
+
+export default Home;

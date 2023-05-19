@@ -16,9 +16,6 @@ export async function getProjects() {
             "image":image.asset->url,
             url,
             content
-        }`,
-		{
-			cache: "no-store",
-		}
+        }`
 	);
 }

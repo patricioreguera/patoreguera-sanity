@@ -1,12 +1,10 @@
 /* "use client"; */
-import { getProjects } from "@/sanity/sanity-utils";
+
 import { PortableText } from "@portabletext/react";
 import styles from "../components/@Pato/Cards/Cards.module.css";
 import Image from "next/image";
 
-const ProjectsCards = async () => {
-	const projects = await getProjects();
-
+const ProjectsCards = ({ projects }) => {
 	return (
 		<>
 			{projects.map((project) => (

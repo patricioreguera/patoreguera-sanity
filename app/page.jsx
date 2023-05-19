@@ -2,7 +2,7 @@ import { Button, Title, Cards } from "./components/@Pato";
 import styles from "./page.module.css";
 import ProjectsCards from "./projects/ProjectsCards";
 
-const Home = async () => {
+const Home = () => {
 	return (
 		<>
 			<div className={styles.main_container}>
@@ -39,3 +39,4 @@ const Home = async () => {
 };
 
 export default Home;
+export const revalidate = 60;

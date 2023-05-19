@@ -7,6 +7,16 @@ export async function getProjects() {
 		apiVersion: "2023-05-18",
 	});
 
+	const queryParams = `*[_type == "project"]{
+    _id,
+    _createdAt,
+    name,
+    "slug":slug.current,
+    "image":image.asset->url,
+    url,
+    content
+}`;
+
 	return client.fetch(
 		groq`*[_type == "project"]{
             _id,
@@ -16,6 +26,11 @@ export async function getProjects() {
             "image":image.asset->url,
             url,
             content
-        }`
+        }`,
+		{
+			next: {
+				revalidate: 60,
+			},
+		}
 	);
 }

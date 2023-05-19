@@ -2,20 +2,10 @@ import { createClient, groq } from "next-sanity";
 
 export async function getProjects() {
 	const client = createClient({
-		projectId: "2piqszv7",
-		dataset: "production",
+		projectId: process.env.NEXT_PUBLIC_SANITY,
+		dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || "production",
 		apiVersion: "2023-05-18",
 	});
-
-	const queryParams = `*[_type == "project"]{
-    _id,
-    _createdAt,
-    name,
-    "slug":slug.current,
-    "image":image.asset->url,
-    url,
-    content
-}`;
 
 	return client.fetch(
 		groq`*[_type == "project"]{

@@ -1,37 +1,11 @@
-/* import { Button, Title, Cards } from "./components/@Pato";
+import { Button, Title, Cards } from "./components/@Pato";
 import styles from "./page.module.css";
 import ProjectsCards from "./projects/ProjectsCards";
- */
-import { createClient, groq } from "next-sanity";
-
-const clientData = {
-	projectId: process.env.NEXT_PUBLIC_SANITY,
-	dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || "production",
-	apiVersion: "2023-05-18",
-};
-
-const getProjects = () => {
-	return createClient(clientData).fetch(
-		groq`*[_type == "project"]{
-            _id,
-            _createdAt,
-            name,
-            "slug":slug.current,
-            "image":image.asset->url,
-            url,
-            content
-        }`
-	);
-};
 
 const Home = async () => {
-	const projects = await getProjects();
 	return (
 		<>
-			{projects.map((project) => (
-				<h1 key={project.id}>{project.name}</h1>
-			))}
-			{/* 		<div className={styles.main_container}>
+			<div className={styles.main_container}>
 				<div className={styles.main_title_container}>
 					<Title
 						text={"Aprende ªJavaScript y Reactº de manera fácil y divertida"}
@@ -58,12 +32,10 @@ const Home = async () => {
 				</p>
 			</div>
 			<div className={styles.container}>
-				<ProjectsCards projects={projects} />
-			</div> */}
+				<ProjectsCards />
+			</div>
 		</>
 	);
 };
 
 export default Home;
-
-export const revalidate = 30; // revalidate this page every 60 seconds

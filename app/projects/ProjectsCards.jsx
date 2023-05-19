@@ -1,10 +1,12 @@
 /* "use client"; */
-
+import { getProjects } from "@/sanity/sanity-utils";
 import { PortableText } from "@portabletext/react";
 import styles from "../components/@Pato/Cards/Cards.module.css";
 import Image from "next/image";
 
-const ProjectsCards = ({ projects }) => {
+const ProjectsCards = async () => {
+	const projects = await getProjects();
+
 	return (
 		<>
 			{projects.map((project) => (
@@ -27,3 +29,4 @@ const ProjectsCards = ({ projects }) => {
 };
 
 export default ProjectsCards;
+export const revalidate = 10; // revalidate this page every 60 seconds

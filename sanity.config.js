@@ -3,8 +3,8 @@ import { deskTool } from "sanity/desk";
 import schemas from "./sanity/schemas";
 
 const config = defineConfig({
-	projectId: process.env.REACT_APP_SANITY_PROJECT_ID,
-	dataset: process.env.REACT_DATASET || "production",
+	projectId: process.env.NEXT_PUBLIC_SANITY,
+	dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || "production",
 	title: "patoreguera",
 	apiVersion: "2023-05-18",
 	basePath: "/admin",
